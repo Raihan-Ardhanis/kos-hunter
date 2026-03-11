@@ -5,13 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  create(data: any) {
-    return this.prisma.user.create({
-      data
-    });
-  }
-
   findAll() {
-    return this.prisma.user.findMany();
+return this.prisma.user.findMany()
   }
 }

@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { KosService } from './kos.service';
 
 @Controller('kos')
@@ -13,5 +21,20 @@ export class KosController {
   @Get()
   findAll() {
     return this.kosService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: number) {
+    return this.kosService.findOne(Number(id));
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: number, @Body() body: any) {
+    return this.kosService.update(Number(id), body);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: number) {
+    return this.kosService.remove(Number(id));
   }
 }

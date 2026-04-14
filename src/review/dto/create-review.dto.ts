@@ -2,14 +2,14 @@ import { IsInt, IsString } from 'class-validator';
 
 export class CreateReviewDto {
   @IsString()
-  comment: string;
+  comment!: string;
 
   @IsInt()
-  rating: number;
+  rating!: number;
 
   @IsInt()
-  userId: number;
+  userId!: number;
 
   @IsInt()
-  kosId: number;
+  kosId!: number;
 }

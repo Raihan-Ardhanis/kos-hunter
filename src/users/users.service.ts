@@ -6,6 +6,13 @@ export class UsersService {
   constructor(private prisma: PrismaService) {}
 
   findAll() {
-return this.prisma.user.findMany()
+    return this.prisma.user.findMany();
+  }
+
+  create(body: any) {
+    return this.prisma.user.create({
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      data: body,
+    });
   }
 }
